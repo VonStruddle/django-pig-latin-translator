@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 
 def home(request):
@@ -8,7 +7,7 @@ def home(request):
 
 def translate(request):
     vowels = ['a', 'e', 'i', 'o', 'u', 'y']
-    text = request.GET.get('text')
+    text = request.GET.get('text').lower()
     new_text = []
 
     for word in text.split():
@@ -23,4 +22,11 @@ def translate(request):
                     ))
                     break
 
-    return HttpResponse(' '.join(new_text))
+    new_text = ' '.join(new_text)
+
+    return render(request, 'translate.html',
+                  {'original': text, 'translation': new_text})
+
+
+def about(request):
+    return render(request, 'about.html')
