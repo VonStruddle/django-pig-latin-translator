@@ -25,7 +25,9 @@ SECRET_KEY = 'az()^4iuw^_%4h73$h%2$81mgm$kc8xj98jxynm*@-5$hu(z6e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'pig-latin-translator-django.herokuapp.com',
+]
 
 
 # Application definition
